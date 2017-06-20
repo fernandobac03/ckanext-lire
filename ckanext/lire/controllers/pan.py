@@ -131,11 +131,11 @@ class PANController(BaseController):
         data_dict={'id': datasetName})
 
     links = []
-
-    for list in dataset['extras']:
-      for key,value in list.items():
-        if 'links:' in value:
-          links.append(value.lstrip('links:'))
+    if dataset['extras']:
+        for list in dataset['extras']:
+          for key,value in list.items():
+            if 'links:' in value:
+              links.append(value.lstrip('links:'))
 
     return links
 
